@@ -1,1 +1,2 @@
-<app-map-view></app-map-view>
+<app-poi-list (search)="searchPois($event)" (selectPoi)="selectPoi($event)"></app-poi-list>
+<app-map-view [markers]="markers()" [center]="selectedPoiLatLng()"></app-map-view>

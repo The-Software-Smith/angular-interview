@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
-import { MapComponent } from '@maplibre/ngx-maplibre-gl';
+import { Component, input } from '@angular/core';
+import { MapComponent, MarkerComponent } from '@maplibre/ngx-maplibre-gl';
+import { LngLatLike } from 'maplibre-gl';
+
+export type Marker = {
+  id: number;
+  lngLat: [number, number];
+}
+
+const middleOfUsa: [number, number] = [-74.5, 40];
 
 @Component({
   selector: 'app-map-view',
-  imports: [MapComponent],
+  imports: [MapComponent, MarkerComponent],
   templateUrl: './map-view.component.html',
   styleUrl: './map-view.component.scss'
 })
 export class MapViewComponent {
-
+  readonly center = input<LngLatLike | undefined>(middleOfUsa);
+  readonly markers = input<Array<Marker>>();
 }

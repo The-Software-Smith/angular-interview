@@ -1,1 +1,14 @@
-<p>poi-list works!</p>
+
+<mat-form-field>
+  <mat-label>Search</mat-label>
+  <input matInput type="text" [formControl]="searchControl" />
+</mat-form-field>
+
+@for (poi of pois(); track poi.id) {
+  <mat-card class="poi-item" (click)="selectPoi.emit(poi.id)">
+    <h3>{{ poi.name }}</h3>
+    <p>{{ poi.description }}</p>
+  </mat-card>
+}
+
+
