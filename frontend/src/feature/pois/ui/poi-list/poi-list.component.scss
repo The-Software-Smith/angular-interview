@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 0 100%;
+  gap: 1rem;
+  padding: 1rem;
+  overflow: auto;
+  max-height: 100vh;
+  position: relative;
+
+  mat-form-field {
+    position: sticky;
+    top: 2rem;
+    z-index: 1;
+  }
+
+  .poi-item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 1rem;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}

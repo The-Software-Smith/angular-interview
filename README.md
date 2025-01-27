@@ -1,39 +1,33 @@
-# Angular Interview Preparation
+# Map Application Interview Project
 
-This repository contains code and resources for preparing and conducting interviews with senior Angular developers.
+This is a starter project for implementing a map-based application with points of interest.
 
-## Contents
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/YOUR_USERNAME/interview-fullstack)
 
-- Sample Angular projects
-- Common interview questions and answers
-- Coding challenges and solutions
-- Best practices and design patterns
+## Task Overview
+
+You are given a basic map application with some intentionally suboptimal implementations. Your task is to:
+
+1. Review the existing code
+2. Identify potential improvements
+3. Implement your suggested improvements
+
+### Key Areas to Consider
+- Performance optimization
+- Error handling
+- State management
+- Code organization
+- TypeScript usage
 
 ## Getting Started
 
-To get started with the sample projects, follow these steps:
+The workspace will automatically start both frontend and backend services.
+- Frontend: http://localhost:4200
+- Backend: http://localhost:3000
 
-1. Clone the repository:
-    ```sh
-    git clone git@github.com:The-Software-Smith/angular-interview.git
-    ```
-2. Navigate to the project directory:
-    ```sh
-    cd angular-interview
-    ```
-3. Install the dependencies:
-    ```sh
-    npm install
-    ```
-4. Run the development server:
-    ```sh
-    ng serve
-    ```
+## API Endpoints
 
-## Contributing
-
-Contributions are welcome! Please submit a pull request or open an issue on Linear to discuss any changes.
-
-## License
-
-This project is licensed under the MIT License.
+- GET /api/pois - Get all POIs
+- GET /api/pois/search?q=term - Search POIs
+- GET /api/pois/category/:category - Get POIs by category
+- GET /api/pois/:id - Get POI by ID

@@ -1,0 +1,9 @@
+<mgl-map
+[style]="'https://tiles.openfreemap.org/styles/liberty'"
+[zoom]="[15]"
+[center]="center()"
+>
+  @for (marker of markers(); track marker.id) {
+    <mgl-marker [lngLat]="marker.lngLat"></mgl-marker>
+  }
+</mgl-map>

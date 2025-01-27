@@ -1,0 +1,19 @@
+tasks:
+  - name: Install & Start Backend
+    init: cd backend && npm install
+    command: npm run start:dev
+    
+  - name: Install & Start Frontend
+    init: cd frontend && npm install
+    command: npm start
+
+ports:
+  - port: 3000
+    onOpen: ignore
+  - port: 4200
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - angular.ng-template
+    - dbaeumer.vscode-eslint

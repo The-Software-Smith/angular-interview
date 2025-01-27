@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex: 1 0 100%;
+
+  app-map-view {
+    flex: 2;
+  }
+
+  app-poi-list {
+    flex: 1;
+  }
+}
