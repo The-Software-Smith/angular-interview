@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "start:gitpod": "ng serve --configuration=gitpod --host 0.0.0.0 --disable-host-check",
     "test": "ng test"
   },
   "private": true,
