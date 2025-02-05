@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: '/api' 
+  apiUrl: window.location.href.replace('4200', '3000') + 'api'
 }; 
