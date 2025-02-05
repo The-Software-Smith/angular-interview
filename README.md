@@ -2,7 +2,7 @@
 
 This repository contains code and resources for preparing and conducting interviews with senior Angular developers.
 
-## Contents
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/The-Software-Smith/angular-interview)
 
 - Sample Angular projects
 - Common interview questions and answers
