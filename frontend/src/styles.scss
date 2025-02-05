@@ -1,0 +1,26 @@
+
+@use '../node_modules/maplibre-gl/dist/maplibre-gl.css';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 100%;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+app-root {
+  display: flex;
+  flex: 1 0 100%;
+}
+
+
+
