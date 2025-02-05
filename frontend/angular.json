@@ -57,6 +57,17 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "gitpod": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.gitpod.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -69,6 +80,9 @@
             },
             "development": {
               "buildTarget": "frontend-interview:build:development"
+            },
+            "gitpod": {
+              "buildTarget": "frontend-interview:build:gitpod"
             }
           },
           "defaultConfiguration": "development"

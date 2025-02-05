@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { POI } from '../model/poi.dto';
 import { Observable } from 'rxjs';
 import { SearchPoiDto } from '../model/search-poi.dto';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PoiService {
-  private readonly apiUrl = 'http://localhost:3000/api/pois';
+  private readonly apiUrl = environment.apiUrl + '/pois';
 
   constructor(private http: HttpClient) {}
 
