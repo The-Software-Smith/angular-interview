@@ -5,6 +5,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatCard } from '@angular/material/card';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-poi-list',
@@ -15,12 +16,12 @@ import { MatCard } from '@angular/material/card';
 export class PoiListComponent implements OnInit {
   readonly pois: Signal<POI[]> = inject(PoisPageComponent).pois;
 
-  readonly search = output<string>();
+  readonly search = output<Observable<string | null>>();
   readonly selectPoi = output<number>();
 
   readonly searchControl = new FormControl('');
 
   ngOnInit() {
-    this.searchControl.valueChanges.subscribe((value) => this.search.emit(value ?? ''));
+    this.search.emit(this.searchControl.valueChanges);
   }
 }

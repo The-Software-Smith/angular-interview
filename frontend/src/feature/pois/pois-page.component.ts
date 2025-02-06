@@ -14,6 +14,8 @@ import {
 import { PoiService } from '../../data/api/poi.service';
 import { POI } from '../../data/model/poi.dto';
 import { PoiListComponent } from './ui/poi-list/poi-list.component';
+import { Observable } from 'rxjs';
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'app-pois-page',
@@ -28,12 +30,14 @@ export class PoisPageComponent implements OnInit {
 
   selectedPoi: WritableSignal<POI | null> = signal(null);
 
-  readonly selectedPoiLatLng: Signal<[number, number] | undefined> = computed(() => {
-    const poi = this.selectedPoi();
-    if (!poi) return undefined;
+  readonly selectedPoiLatLng: Signal<[number, number] | undefined> = computed(
+    () => {
+      const poi = this.selectedPoi();
+      if (!poi) return undefined;
 
-    return [poi.longitude, poi.latitude];
-  });
+      return [poi.longitude, poi.latitude];
+    }
+  );
 
   readonly markers = computed(() =>
     this.pois().map<Marker>((poi) => ({
@@ -49,15 +53,14 @@ export class PoisPageComponent implements OnInit {
     });
   }
 
-  searchPois(query: string) {
-    if (!query) {
-      this.poiService.getPois().subscribe((pois) => this.pois.set(pois));
-    }
-    if (query.length >= 2) {
-      this.poiService
-        .searchPois({ q: query })
-        .subscribe((pois) => this.pois.set(pois));
-    }
+  searchPois(query: Observable<string | null>) {
+    query.subscribe((query) => {
+      if (!query) {
+        this.poiService.getPois().subscribe((pois) => this.pois.set(pois));
+      } else if (query.length >= 2) {
+        this.poiService.searchPois({ q: query }).subscribe((pois) => this.pois.set(pois));
+      }
+    });
   }
 
   selectPoi(poiId: number) {
