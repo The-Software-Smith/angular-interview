@@ -1,14 +1,17 @@
+<div class="poi-list-container" cdkVirtualScrollingElement>
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput type="text" [formControl]="searchControl" />
+  </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Search</mat-label>
-  <input matInput type="text" [formControl]="searchControl" />
-</mat-form-field>
-
-@for (poi of pois(); track poi.id) {
-  <mat-card class="poi-item" (click)="selectPoi.emit(poi.id)">
-    <h3>{{ poi.name }}</h3>
-    <p>{{ poi.description }}</p>
-  </mat-card>
-}
-
-
+  <cdk-virtual-scroll-viewport class="virtual-scroll-viewport" [itemSize]="10">
+    <mat-card
+      class="poi-item"
+      *cdkVirtualFor="let poi of pois()"
+      (click)="selectPoi.emit(poi.id)"
+    >
+      <h3>{{ poi.name }}</h3>
+      <p>{{ poi.description }}</p>
+    </mat-card>
+  </cdk-virtual-scroll-viewport>
+</div>
